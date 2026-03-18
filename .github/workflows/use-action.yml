@@ -1,0 +1,21 @@
+name: Use une action personnalisee depuis un autre depot 
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Utiliser mon action
+        uses: moustarhim29/Action@main
+        with:
+          nom: "moustarhim29"
+
+      - name: Afficher le résultat
+        run: echo "Action exécutée avec succès !"
